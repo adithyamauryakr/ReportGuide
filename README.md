@@ -4,7 +4,7 @@
 
 A short, practical guide to writing reports and theses in LaTeX, written by students for students. It grew out of tips and habits picked up while writing a Master's thesis, and is meant to be a living reference rather than an exhaustive one.
 
-📄 Read the compiled guide: [`Guide.pdf`](Guide.pdf)
+📄 Read the compiled guide: [`Guide.pdf`](main.pdf)
 
 ## Contents
 
