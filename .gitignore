@@ -2,4 +2,14 @@
 build/
 
 # The actual pdf file
-/Guide.pdf
+/main.pdf
+output-logs/
+
+# LaTeX build artefacts
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc

@@ -1,0 +1,25 @@
+\chapter{Report Writing}
+\begin{tcolorbox}[colback=red!5!white,colframe=darkred!75!black,title={\large \textbf{An Advisory on ChatGPT and other LLMs}}]
+	While LLMs such as ChatGPT are a technological marvel and are incredibly useful tools, they must be used with extreme caution in a academic setting. The usage of LLMs for writing \LaTeX\ code is relatively harmless as long as your check for errors and ensure your content is unmodified. However, LLMs must \textbf{never} be used for writing your report for you, coming to conclusions using your data or sifting through data. \bigskip
+
+	While it is also a question of academic integrity there is a more pressing problem with using LLMs for this purpose. LLMs are all biased to their training data. Using an LLM for research risks tainting your entire work with that bias. For fields such as ours where we must strive to be as objective as possible, a system that is inherently biased should be used judiciously and with caution.
+\end{tcolorbox}
+\section{General Advice}
+\begin{itemize}
+	\item \textbf{Never write anything you don't know.} A report is a compilation of your work and knowledge.
+	\item \textbf{Cite everything you didn't explicitly do yourself.} This includes figures, data, results, derivations, etc.
+	\item \textbf{Define every symbol.} Never assume a symbol has standard meaning.
+	\item \textbf{Maintain a bibliography.} BibTeX makes this extremely simple. Most websites that host scientific literature have an export citation feature. Copy the BibTeX code into a references file for every paper that you read. Never leave citations till the end of a report.
+	\item \textbf{Give ample background.} Reports are not papers, they will be read in isolation. You cannot assume more than proficiency in science.
+	\item \textbf{Maintain a flow.} Start your sections with a brief explanation of their contents to motivate the readers. This is common practice in many papers and helps make your report more readable. You should also make sure that you never need information from later sections to understand an earlier section. For example, a derivation in Section 2 should not require information from Section 3.
+	\item \textbf{Typeset your equations well.} Refer to Section \ref{sec:equations} for tips to do this. Equations are often the essence and hardest parts of reports. They need to be perfect for your report to look good.
+	\item \textbf{Get a friend,} or two. You need someone to correct your typos, misaligned paragraphs, mismatched brackets and other mishaps which are entirely invisible to the author themselves.
+	\item \textbf{Collect often used snippets of code.} As your write reports you will notice that you write certain bits of text a lot. Collect these together and reuse them as they will save you a lot of time and will help make your \LaTeX\ code more readable in the long run.
+	\item \textbf{Punctuate equations.}
+	While equations can appear on their own they are still technically part of the sentence. You must add punctuation after the equation depending on whether you plan on continuing the sentence. For instance, if you take an equation such as
+	\begin{equation}
+		\bm{\delta r} = \sqrt{4\pi} Re\left\lbrace\left[\tilde{\xi}_r\left(r\right) Y^m_l\left(\theta, \phi\right) \bm{a}_r + \tilde{\xi}_h\left(r\right) \left(\partialderiv{Y^m_l}{\theta} \bm{a}_\theta + \frac{1}{\sin \theta} \partialderiv{Y^m_l}{\phi} \bm{a}_\phi\right)\right] \exp \left(-i\omega t\right)\right\rbrace,
+	\end{equation}
+	{\reversemarginpar\marginnote{\uprightarrow \\\small Notice how the paragraph is continued after the equation. There is no indent here and no new paragraph.}[1.2mm]}in the middle of a sentence you'll need to use a comma instead of a full stop. This works wonders in making your report look more professional and the difference is immediately obvious even though it feels like a minute detail.
+	\item \textbf{Get feedback,} submit your report ahead of time even if it is just a draft to your guide or project instructor for advice. They can help you a lot more than you expect and won't be crunched for time.
+\end{itemize}

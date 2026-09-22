@@ -1,0 +1,46 @@
+\section{Equations}\label{sec:equations}
+Typesetting equations is one of the biggest advantages of using \LaTeX\ and one of the the biggest reasons why the effort required to write more academically complex documents goes up very slowly when using \LaTeX\ (Refer to Figure on page 1). \LaTeX\ features a math mode which allows you to write equations in a symbolic form. This way of writing equations has become ubiquitous in most methods of typesetting and is the most stereotypical form of ``\LaTeX''.
+
+Math mode can be used either inline by enclosing commands in \verb*|$...$| (which produces something like this $e^x$). Inline mode doesn't give you equation numbers and doesn't put the math on a separate line. The other method involves using the \texttt{equation}, \texttt{align}, \texttt{gather}, ... environments. These environments put the equations on a separate line and add equation numbers. For example
+\begin{equation}
+	F = ma.
+\end{equation}
+
+With parenthesis of any kind try to use \lstinline|\left| and \lstinline|\right|. They allow you to automatically balance brackets and more importantly they resize automatically based on its contents. This makes a significant difference in larger equations and makes them way more readable. Here's an example,
+\begin{gather}
+	\bm{\times} \qquad\qquad\qquad\qquad\qquad \checkmark \nonumber\\
+	[a^2 + (e^{\int_0^{\infty} f(t) \text{d}t})b^2] ,\qquad\qquad  \left[a^2 + \left(e^{\int_0^{\infty} f\left(t\right) \text{d}t}\right)b^2\right].
+\end{gather}
+
+Over time you'll find that you keep using some snippets over and over again. This would be a good time to write a few of your own macros/commands. This will save you a lot of time. \LaTeX\ allows you to define your own commands and even redefine existing ones. For example a command for derivatives can be defined as follows
+\begin{lstlisting}[style=mystyle]
+\newcommand{\deriv}[3][]{\frac{d^{#1} #2}{d #3^{#1}}}\end{lstlisting}
+Commands can also be redefined for example, \lstinline[style=mystyle]|\div| command can be defined to be divergence instead of the division symbol as follows
+\begin{lstlisting}[style=mystyle]
+\renewcommand{\div}{\,\textnormal{div}\,}\end{lstlisting}
+
+Sometimes, willingly or otherwise, you will be left with an equation too large for a single line. In these situations you can use the \verb*|align|, \verb*|gather| or \verb*|multiline| environments. The exact syntax can be found online but one should use \verb*|align| when you need to write multiple steps and you want them to be aligned to the equals to sign, for example,
+\begin{align}
+	Z[J] &\equiv \int{D\Phi \, \text{exp}\left[i \int{d^4 x}(\mathscr{L}[\Phi]+J\Phi)\right]} \nonumber \\
+	&= \text{exp}\left(i \int{d^4x}\mathscr{L}_1\left[i \frac{\delta}{\delta J}\right]\right) \text{exp}\left(i \int{d^4x }(\mathscr{L}_0 +J\Phi) \right) .\label{eq:Z}
+\end{align}
+
+You should use \verb*|gather| when you just need the multiple lines of the equation to just be center aligned, for example,
+\begin{gather}
+	\delta g^{\mu\nu} = - g^{\mu \rho}g^{\nu \sigma} \delta g_{\rho \sigma}, \\
+	\delta g_{\mu\nu} = - g_{\mu \rho}g_{\nu \sigma} \delta g^{\rho \sigma}, \\
+	\delta g  = g g^{\mu\nu} \delta_{\mu\nu}, \\
+	\delta \sqrt{-g}  = \frac{1}{2}\sqrt{-g} g^{\mu\nu} \delta_{\mu\nu}. \label{eq:var-detg}
+\end{gather}
+
+The last one is \verb*|multiline| which you use when you don't have a particular use case but you still need multiple lines, for example if the equation is way too large for a single line like so
+\begin{multline}
+	\rho(\eta,\mathbf{x})=\expv{\varrho(\eta,\mathbf{x})} \nonumber \\
+	= \rho_0(\eta)+a^{-4}\frac{3\lambda}{4!}  \left( \int_{\mathbf{k}} |\chi_k(\eta)|^2\right)^2 +a^{-4}\frac{12\lambda}{4! } \operatorname{Im}
+	\left\{ \int_{-\infty}^{\eta}{d\tau} a^4(\tau) \left\{  \int_{\mathbf{k}}\left[ \chi'_k(\eta) \chi^*_k(\tau) \right]^2 \right. \right. \nonumber \\
+	\left. \left.+\int_{\mathbf{k}} \left[ \omega_k^2(\eta)+(1-6\xi)\mathcal{H}^2(\eta)\right] [\chi_k(\eta) \chi_k^*(\tau)]^2 +(1-6\xi)\mathcal{H}(\eta) \int_{\mathbf{k}}\chi_k(\eta)\chi'_k(\eta)  [\chi_k^*(\tau)]^2 \right\} \left[\int_\mathbf{k}|\chi_k(\tau)|^2\right] \right\}.\label{eq:interacting energy density}
+\end{multline}
+
+
+
+In the last example \lstinline|\left| and \lstinline|\right| will not be balanced since they are on different lines. They can be made to balance by using a \lstinline|\right.| to virtually close the bracket. You can read the source code of this document to see how the equation is written or you can read about other ways of doing this \href{https://tex.stackexchange.com/questions/21290/how-to-make-left-right-pairs-of-delimiter-work-over-multiple-lines}{here}.

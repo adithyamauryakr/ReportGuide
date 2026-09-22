@@ -1,0 +1,30 @@
+\section{Bibliography}
+Bibliography is yet another reason \LaTeX\ is incredible for academic contexts. While some word processors do provide ways to manage bibliographies and citations, they all reimplement the same citation system that \LaTeX\ uses. There are many packages that provide bibliographies in \LaTeX. We recommend you read \url{https://www.overleaf.com/learn/latex/Bibliography_management_in_LaTeX} for a proper tutorial/guide to bibliography in \LaTeX. They do a much better job than we could in this small document.
+
+Our advice for bibliography would be to copy over references of all papers you read into your \texttt{bib} file. While you might not end up citing all of them it is easier to find them if you keep a record from the beginning.
+
+\newpage
+\section{Some specific tips and tricks}
+\begin{itemize}
+	\item \textbf{Code Snippets}
+	\begin{itemize}
+		\item Use the \texttt{lstlistings} package. However, you might have to define a style to make the code blocks look decent since the default is quite barebones.
+		\item If you include julia code especially those containing unicode characters such as greek letters you may want to use \url{https://github.com/wg030/jlcode}
+	\end{itemize}
+	\item There exists a \texttt{physics} package that provides macros and styles for many of the commonly used objects in physics. However, we personally didn't like the package since we already had macros that did the same things in our own taste.
+	\item Setup your hyperlinks properly as it makes a document much easier to navigate. Ensure that the table of contents is properly linked. Citation, equation and figure links are quite important as well since it allows the reader to jump to what you are talking about.
+	\item You can use \lstinline|\includepdf| from the package \verb*|pdfpages| to include things like certificates. Once you get the signed certificate as a pdf file you can always just include it in your document as a page making this process quite easy and seamless.
+	\item Modify \verb|\vec| to use boldface instead of a overdrawn arrow. This is the standard in nearly all physics literature. ($\vec{a}$ vs $\bm{a}$). This can be done with the following snippet included somewhere in your preamble.
+	\begin{lstlisting}[style=mystyle]
+\renewcommand{\vec}[1]{{\bm{#1}}}\end{lstlisting}
+	\item \textbf{Astrophysics}
+	\begin{itemize}
+		\item ADS references are designed for papers that use a custom \LaTeX\ style provided by journals. You will get many errors if you try to use references generated from ADS as the journal names are defined by \LaTeX\ commands such as \verb*|\apj|, \verb*|\aap|, etc. You can extract just the journal definitions from the AAS style classfiles \footnote{They can be found here \url{https://journals.aas.org/aastex-package-for-manuscript-preparation/#_download}. You can open any classfile and search for lines starting with \verb*|\newcommand| containing \verb*|\aap| or similar journals to find the definitions.}. If this proves difficult you can drop us a mail and we'll can share a file with the definitions.
+		\item Define a few helper commands for solar mass and other units. There is probably a package for this but this is pretty easy to do by hand.
+	\end{itemize}
+	\item \textbf{Particle Physics and Quantum Field Theory}
+	\begin{itemize}
+		\item Use the \texttt{tikz-feynman} package to draw Feynman Diagrams. A good documentation can be found \href{https://in.mirrors.cicku.me/ctan/graphics/pgf/contrib/tikz-feynman/tikz-feynman.pdf}{here.}
+		\item Wick contractions can be done using the package \verb*|simpler-wick|.
+	\end{itemize}
+\end{itemize}

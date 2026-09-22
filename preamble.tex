@@ -1,0 +1,93 @@
+\usepackage[T1]{fontenc}
+\usepackage{babel}
+\usepackage[portrait, margin=3cm]{geometry}
+\usepackage{listings,xcolor}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+\usepackage{ascii}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{epigraph}
+\usepackage{marginnote}
+\usepackage{tikz}
+\usepackage{cancel}
+\usepackage{bigfoot}
+\usetikzlibrary{arrows.meta}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{wrapfig}
+\usepackage{tikzpagenodes}
+\usepackage{mathrsfs}
+\usepackage[utf8]{inputenc}
+\interfootnotelinepenalty=10000
+
+\usepackage{enumitem,amssymb}
+\newlist{todolist}{itemize}{2}
+\setlist[todolist]{label=$\square$}
+
+
+\DeclareUnicodeCharacter{2615}{\teacup}
+
+
+
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+
+\newcommand{\uprightarrow}[1][]{%
+	\tikz{
+		\draw [-{Stealth[length=2mm]}] (0,0) -- (0, 1.3ex) -- (2.6ex,1.3ex);
+	}
+}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.98,0.98,0.98}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{darkred}{rgb}{0.9, 0.2, 0.2}
+
+\newcommand{\expv}[1]{\ensuremath{\left \langle #1  \right \rangle}} %gives the expectation value
+
+
+\newcommand{\partialderiv}[3][]{\frac{\partial^{#1} #2}{\partial #3^{#1}}}
+\newcommand{\mybox}[1]{
+	\noindent\fbox{%
+		\parbox{\textwidth}{%
+			#1
+		}%
+}}
+
+\lstdefinestyle{mystyle}{
+	language=[LaTeX]{TeX},
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{blue},
+	numberstyle=\small\ttfamily\color{black},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily,
+	breakatwhitespace=false,
+	breaklines=true,
+	%frame=lines,
+	captionpos=b,
+	keepspaces=true,
+	numbers=none,
+	numbersep=5pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=4,
+	framexleftmargin=15pt,
+	xleftmargin=5.0ex,
+	moretexcs={hypersetup, chapter, includegraphics}, % user command highlight
+}
+
+\lstset{style=mystyle}
+
+\hypersetup{
+	colorlinks=true, %set true if you want colored links
+	linktoc=all,     %set to all if you want both sections and subsections linked
+	linkcolor=blue,  %choose some color if you want links to stand out
+}
+
+\title{\asciifamily\Huge \textbf{A Student's Guide on Writing \\Reports and Theses} \\{\large (with \LaTeX\ and $\mathcal{C}$hai)} \bigskip\\ {\normalsize 1st Revision}}
+\author{Vishal Sai Vetrivel \\ Q15 \and G Dhiyanesh \\ Q15}

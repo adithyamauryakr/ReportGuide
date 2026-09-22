@@ -1,0 +1,55 @@
+%	{\let\clearpage\relax \chapter{\LaTeX\ Basics}}
+\chapter{\LaTeX\ Basics}
+
+	A \LaTeX\ document consists of the preamble and the main content. The preamble is everything before the \texttt{\textbackslash begin$\lbrace\text{document}\rbrace$} where you import all the packages needed for your document and configure them. Any global definitions also go here.
+
+
+	\section{Document Classes}
+	For writing reports we will mostly be using the \texttt{report} document class. There are other alternatives but they are generally not suited for writing reports. If you want to know the differences between the three major classes you can read this \url{https://tex.stackexchange.com/questions/36988/regarding-the-book-report-and-article-document-classes-what-are-the-mai}.
+
+
+	\section{Figures and Images}
+	Most (good) \LaTeX\ editors will feature an easy way to insert images. TeXstudio for instance has a Insert Graphic Wizard or you can just paste images directly into the editor. Here's an example of how a figure environment is used.
+	\begin{figure}[H]
+		\begin{subfigure}[h]{0.5\linewidth}
+			\includegraphics[width=\linewidth]{images/fig_code1.png}
+			\caption{The \LaTeX\ code for a figure}
+		\end{subfigure}
+		\begin{subfigure}[h]{0.5\linewidth}
+			\includegraphics[width=\linewidth]{images/fig_prev1.png}
+			\caption{The resulting output}
+		\end{subfigure}%
+		\caption{An example of a figure environment.\label{fig:fig_example}}
+	\end{figure}
+	Here the figure environment allows you to position the image by floating it. This means that \LaTeX\ will find a place for it depending on your hints. Personally, we find the \texttt{H} option from the \texttt{float} package to be the best option since it ensures the image stays where it is in the code (as shown in the Figure \ref{fig:fig_example}). Captions are also included in this figure environment and are floated according to the image position.
+
+	Generally the image is kept in the same folder but as long as the path is mentioned properly in \lstinline|\includegraphics| it will work fine. When passing the size of the image try not to set both width and height as it will change the aspect ratio of the image. Setting only one of height or width will automatically scale the other to maintain aspect ratio.
+
+	A label also helps when you want to refer to the image later. The \texttt{report} class numbers figures and equations based on section and chapter numbers. Figures can also be grouped together into a single figure using subfigures. For example, Figure \ref{fig:fig_example} is a figure with two subfigures. This can be done using \verb*|subcaption| package\footnote{Yea confusing naming.}.
+
+	\section{Hyperlinks}
+	\begingroup
+	If you use the \texttt{hyperref} package a lot of sane basics are applied to hyperlinks. One thing to note is that the default hyperlink style is not particularly great (personal and somewhat subjective opinion), as it renders a box around all your hyperlinks. Changing the default style is quite easy and it can be done in a single line.
+	\endgroup
+	\begin{lstlisting}[style=mystyle]
+\hypersetup{
+	colorlinks = true, % Color links instead of ugly boxes
+	linkcolor  = blue, % Color for internal links
+	urlcolor   = blue, % Color for external hyperlinks
+	citecolor  = red   % Color of citations
+	linktoc=all,       % Links in Table of Contents
+}\end{lstlisting}
+	This snippet sets the hyperlink colors and removes the box around them. \texttt{linktoc=all} makes the sections and subsections linked in the table of contents.
+
+	\section{Sections and Chapters}
+	A \LaTeX\ report is divided into chapters and sections. This division is important as the default numbering of equations, figures, tables, etc. relies on the current chapter, section and subsection\footnote{and subsubsection but we don't talk about those}. It also helps with maintaining a flow to your report.
+
+	By default each chapter is placed in a new page. This might be what you want for your report but there are times where you would prefer it to be continued in text. This can be done using the following snippet instead of your usual \lstinline[style=mystyle]|\chapter{...}|
+	\begin{lstlisting}[style=mystyle]
+{\let\clearpage\relax \chapter{...}}\end{lstlisting}
+
+
+	\section{Paragraphs}
+	There are some things you must be aware of when splitting your content into paragraphs in \LaTeX. All new paragraphs in \LaTeX\ excluding the first paragraph in a section or chapter will have an indent before them. A new paragraph is identified by this indent. It can be seen at many places in this document. A blank line between two blocks of text in your \LaTeX\ source code will create a new paragraph. This is useful as you can separate blocks of code to be more readable without triggering a new paragraph but it also means that you need to be careful with leaving blank lines where you don't intend to start a new paragraph. It should also be noted that \verb*|\\| command does not create a new paragraph, it simply inserts a newline.
+
+	{\reversemarginpar\marginnote{\small This is the $\rightarrow$ indent.$\quad$}}You shouldn't start a new paragraph when discussing an equation inside a paragraph. This is easy to do by mistake as leaving a blank line after the equation environment will cause the paragraph to split into two leaving an indent on the text following the equation.

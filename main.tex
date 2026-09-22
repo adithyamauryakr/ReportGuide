@@ -1,0 +1,21 @@
+\documentclass[english,10pt,a4paper, openany, oneside]{book}
+
+\input{preamble}
+
+\begin{document}
+	\frontmatter
+	{\let\cleardoublepage\clearpage
+		\input{frontmatter}
+	}
+
+	\mainmatter
+	\input{chapters/introduction}
+	\input{chapters/latex-basics-structure}
+	\input{chapters/latex-basics-equations}
+	\input{chapters/latex-basics-reference}
+	\input{chapters/report-writing}
+
+	\appendix
+	\input{appendix/final-checklist}
+
+\end{document}
