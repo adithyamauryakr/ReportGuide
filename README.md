@@ -70,6 +70,10 @@ The best way to contribute is to open a pull request on this repository. If you'
 - dhiyanesh.gowrisankar@cbs.ac.in
 - science.club@cbs.ac.in *(if the above no longer work, they'll pass it on)*
 
+## Contributors
+
+- **Adithya Maurya K R** ([@adithyamauryakr](https://github.com/adithyamauryakr)) — restructured the LaTeX source into modular files
+
 ## License
 
 No license has been specified for this repository yet. Until one is added, please reach out to the authors before reusing content beyond personal reference.
